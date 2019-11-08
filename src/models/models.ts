@@ -1,38 +1,41 @@
-export type PokemonType = "NORMAL" | "GRASS" | "FIRE" | "WATER" | "BUG" | "POISON" | "FLYING" | "ELECTRIC" | "GROUND" | "FAIRY" | "FIGHTING" | "PSYCHIC" | "ROCK" | "STEEL" | "ICE" | "GHOST" | "DRAGON" | "DARK";
+export type PokemonType =
+"NORMAL" | "GRASS" | "FIRE" | "WATER" | "BUG" | "POISON" |
+"FLYING" | "ELECTRIC" | "GROUND" | "FAIRY" | "FIGHTING" | "PSYCHIC" |
+"ROCK" | "STEEL" | "ICE" | "GHOST" | "DRAGON" | "DARK";
 
 export interface IAbility {
-    dbid: number,
-    name: string,
+    dbid: number;
+    name: string;
     description: string;
 }
 
 export interface IAttack {
-    dbid: number,
-    name: string,
-    type: PokemonType,
-    description: string,
-    power: number,
-    accuracy: number,
-    pp: number,
-    category: string,
+    dbid: number;
+    name: string;
+    type: PokemonType;
+    description: string;
+    power: number;
+    accuracy: number;
+    pp: number;
+    category: string;
     target: IAttackTarget;
-    contact: boolean,
-    snatch: boolean,
-    substitute: boolean,
-    sheerForce: boolean,
-    magicCoat: boolean,
-    rseContestAttribute: string,
-    rseContestMoveType: IContestMoveType,
-    dppContestAttribute: string,
-    dppContestMoveType: IContestMoveType,
-    orasContestAttribute: string,
+    contact: boolean;
+    snatch: boolean;
+    substitute: boolean;
+    sheerForce: boolean;
+    magicCoat: boolean;
+    rseContestAttribute: string;
+    rseContestMoveType: IContestMoveType;
+    dppContestAttribute: string;
+    dppContestMoveType: IContestMoveType;
+    orasContestAttribute: string;
     orasContestMoveType: IContestMoveType;
 }
 
 export interface IAttackTarget {
-    dbid: number,
-    name: string,
-    description: string
+    dbid: number;
+    name: string;
+    description: string;
 }
 
 export interface IBasePokemon {
@@ -64,11 +67,11 @@ export interface IBasePokemon {
 }
 
 export interface IContestMoveType {
-    dbid: number,
-    name: string,
-    description: string,
-    score: number,
-    jam: number
+    dbid: number;
+    name: string;
+    description: string;
+    score: number;
+    jam: number;
 }
 
 export interface ICreativeRank {
@@ -106,6 +109,7 @@ export interface IPokemon extends IBasePokemon {
     alteredForms: any;
     uniqueMoves: any;
     evolutionFamily: IEvolution[][];
+    megaEvolutions: IPokemonMega[];
     evolvesFrom: IEvolvesFrom;
     megaEvolvesFrom: IMegaEvolvesFrom;
 }

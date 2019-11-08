@@ -5,8 +5,8 @@ import { IAbility, IAttack, IPokemon } from "./models/models";
 export type UrpgApiEnvrionment = "staging" | undefined;
 
 export interface UrpgApiOptions {
-    token?: string,
-    environment?: UrpgApiEnvrionment
+    token?: string;
+    environment?: UrpgApiEnvrionment;
 }
 
 export class UrpgClient {
@@ -18,7 +18,7 @@ export class UrpgClient {
         this.token = options.token;
         this.env = options.environment;
 
-        this.baseUrl = this.env ? `https://${this.env}.pokemonurpg.com:8443` : `https://pokemonurpg:8443`;
+        this.baseUrl = this.env ? `https://${this.env}.pokemonurpg.com:8443` : "https://pokemonurpg:8443";
     }
 
     public ability = new ReadWriteEndpoint<IAbility>("ability", this);
