@@ -95,6 +95,7 @@ export interface IPokemon extends IBasePokemon {
     alteredForms: any;
     uniqueMoves: any;
     evolutionFamily: IEvolution[][];
+    megaEvolutions: IPokemonMega[];
     evolvesFrom: IEvolvesFrom;
     megaEvolvesFrom: IMegaEvolvesFrom;
 }
