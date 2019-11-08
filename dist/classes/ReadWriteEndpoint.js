@@ -49,9 +49,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var string_similarity_1 = require("string-similarity");
 var ReadEndpoint_1 = require("./ReadEndpoint");
 var RequestHandler_1 = require("./RequestHandler");
-var string_similarity_1 = require("string-similarity");
 var ReadWriteEndpoint = /** @class */ (function (_super) {
     __extends(ReadWriteEndpoint, _super);
     function ReadWriteEndpoint(resource, client) {
@@ -70,18 +70,23 @@ var ReadWriteEndpoint = /** @class */ (function (_super) {
     };
     ReadWriteEndpoint.prototype.getClosest = function (name) {
         return __awaiter(this, void 0, void 0, function () {
-            var bestMatch;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            var bestMatch, _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
                         if (!!this.cache) return [3 /*break*/, 2];
                         return [4 /*yield*/, _super.prototype.get.call(this)];
                     case 1:
-                        _a.sent();
-                        _a.label = 2;
+                        _b.sent();
+                        _b.label = 2;
                     case 2:
                         bestMatch = string_similarity_1.findBestMatch(name, this.cache).bestMatch;
-                        return [2 /*return*/, this.get(bestMatch.target)];
+                        _a = {
+                            rating: bestMatch.rating
+                        };
+                        return [4 /*yield*/, this.get(bestMatch.target)];
+                    case 3: return [2 /*return*/, (_a.value = _b.sent(),
+                            _a)];
                 }
             });
         });

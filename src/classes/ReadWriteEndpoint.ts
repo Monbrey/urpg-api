@@ -1,7 +1,7 @@
+import { findBestMatch } from "string-similarity";
+import { Matched, UrpgClient } from "..";
 import { ReadEndpoint } from "./ReadEndpoint";
 import { RequestHandler } from "./RequestHandler";
-import { UrpgClient } from "..";
-import { findBestMatch } from "string-similarity";
 
 class ReadWriteEndpoint<T> extends ReadEndpoint {
     public constructor(resource: string, client: UrpgClient) {
@@ -17,11 +17,15 @@ class ReadWriteEndpoint<T> extends ReadEndpoint {
         return RequestHandler.handle<T>(url);
     }
 
-    public async getClosest(name: string) {
+    public async getClosest(name: string): Promise<Matched<T>> {
         if(!this.cache) await super.get();
 
         const { bestMatch } = findBestMatch(name, this.cache);
-        return this.get(bestMatch.target);
+        return {
+            rating: bestMatch.rating,
+            value: await this.get(bestMatch.target)
+        };
+
     }
 
     public static post(): void {

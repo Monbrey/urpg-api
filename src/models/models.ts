@@ -132,3 +132,8 @@ export interface ITypeMatchup {
     name: string;
     multiplier: number;
 }
+
+export interface Matched<T> {
+    value: T;
+    rating: number;
+}
