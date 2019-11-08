@@ -1,0 +1,36 @@
+{
+    "name": "urpg-api",
+    "version": "1.0.0",
+    "description": "Fully typed Javascript wrapper for the Pokemon URPG API",
+    "files": [
+        "dist/**/*"
+    ],
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "lint": "npx tslint -p tsconfig.json --fix",
+        "prepare": "npm run build",
+        "preversion": "npm run lint",
+        "postversion": "git push && git push --tags"
+    },
+    "author": "Monbrey",
+    "repository": {
+        "url": "https://github.com/Monbrey/urpg-api"
+    },
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^12.12.6",
+        "@types/node-fetch": "^2.5.3",
+        "@types/string-similarity": "^3.0.0",
+        "@typescript-eslint/eslint-plugin": "^2.6.1",
+        "@typescript-eslint/parser": "^2.6.1",
+        "eslint": "^6.6.0",
+        "typescript": "^3.7.2",
+        "typescript-eslint": "0.0.1-alpha.0"
+    },
+    "dependencies": {
+        "node-fetch": "^2.6.0",
+        "string-similarity": "^3.0.0"
+    }
+}
