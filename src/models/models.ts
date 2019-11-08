@@ -49,7 +49,7 @@ export interface IBasePokemon {
     attack: number;
     defense: number;
     specialAttack: number;
-    specialDefence: number;
+    specialDefense: number;
     speed: number;
     height: number;
     weight: number;
