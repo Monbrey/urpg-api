@@ -90,8 +90,8 @@ export interface IMegaEvolvesFrom {
     megastone: string;
 }
 export interface IPokemon extends IBasePokemon {
-    attacks?: IPokemonAttack[];
-    abilities?: IPokemonAbility[];
+    attacks: IPokemonAttack[];
+    abilities: IPokemonAbility[];
     alteredForms: any;
     uniqueMoves: any;
     evolutionFamily: IEvolution[][];
