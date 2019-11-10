@@ -12,9 +12,10 @@ export interface UrpgApiOptions {
 export class UrpgClient {
     private token?: string;
     private env?: string;
+
     public baseUrl: string;
 
-    public constructor(options: UrpgApiOptions) {
+    public constructor(options?: UrpgApiOptions) {
         this.token = options.token;
         this.env = options.environment;
 

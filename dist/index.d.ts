@@ -10,7 +10,7 @@ export declare class UrpgClient {
     private token?;
     private env?;
     baseUrl: string;
-    constructor(options: UrpgApiOptions);
+    constructor(options?: UrpgApiOptions);
     ability: ReadWriteEndpoint<IAbility>;
     artRank: ReadEndpoint;
     attackCategory: ReadEndpoint;

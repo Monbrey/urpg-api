@@ -35,8 +35,8 @@ export interface IBasePokemon {
     dbid: number;
     dexno: number;
     name: string;
-    type1: PokemonType;
-    type2: PokemonType;
+    type1: PokemonType | IPokemonType;
+    type2: PokemonType | IPokemonType;
     classification: string;
     hp: number;
     attack: number;
@@ -90,6 +90,8 @@ export interface IMegaEvolvesFrom {
     megastone: string;
 }
 export interface IPokemon extends IBasePokemon {
+    type1: PokemonType;
+    type2: PokemonType;
     attacks: IPokemonAttack[];
     abilities: IPokemonAbility[];
     alteredForms: any;
@@ -107,8 +109,14 @@ export interface IPokemonAttack extends IAttack {
     generation: number;
 }
 export interface IPokemonMega extends IBasePokemon {
+    type1: IPokemonType;
+    type2: IPokemonType;
     ability: IPokemonAbility;
     megastone: string;
+}
+export interface IPokemonType {
+    dbid?: number;
+    name: PokemonType;
 }
 export interface ITypeMatchup {
     name: string;
