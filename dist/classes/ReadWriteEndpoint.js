@@ -80,11 +80,13 @@ var ReadWriteEndpoint = /** @class */ (function (_super) {
                         _b.sent();
                         _b.label = 2;
                     case 2:
-                        bestMatch = string_similarity_1.findBestMatch(name, this.cache).bestMatch;
+                        if (!this.targetStrings)
+                            this.targetStrings = this.cache.map(function (v) { return v.toLowerCase(); });
+                        bestMatch = string_similarity_1.findBestMatch(name.toLowerCase(), this.targetStrings).bestMatch;
                         _a = {
                             rating: bestMatch.rating
                         };
-                        return [4 /*yield*/, this.get(bestMatch.target)];
+                        return [4 /*yield*/, this.get(this.cache[this.targetStrings.indexOf(bestMatch.target)])];
                     case 3: return [2 /*return*/, (_a.value = _b.sent(),
                             _a)];
                 }

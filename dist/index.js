@@ -2,8 +2,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var ReadEndpoint_1 = require("./classes/ReadEndpoint");
 var ReadWriteEndpoint_1 = require("./classes/ReadWriteEndpoint");
+/**
+ * The main hub for interacting with the URPG API
+ */
 var UrpgClient = /** @class */ (function () {
+    /**
+     * @param {Object} [options] Options
+     * @param {string} [options.environment] The non-prod API environment to connect to
+     * @param {number} [options.cacheTime=60000] The time, in ms, to cache data for
+     */
     function UrpgClient(options) {
+        if (options === void 0) { options = {}; }
         this.ability = new ReadWriteEndpoint_1.ReadWriteEndpoint("ability", this);
         this.artRank = new ReadEndpoint_1.ReadEndpoint("artrank", this);
         this.attackCategory = new ReadEndpoint_1.ReadEndpoint("attackcateory", this);
@@ -17,9 +26,8 @@ var UrpgClient = /** @class */ (function () {
         this.pokemon = new ReadWriteEndpoint_1.ReadWriteEndpoint("pokemon", this);
         this.storyRank = new ReadEndpoint_1.ReadEndpoint("storyrank", this);
         this.type = new ReadEndpoint_1.ReadEndpoint("type", this);
-        this.token = options.token;
-        this.env = options.environment;
-        this.baseUrl = this.env ? "https://" + this.env + ".pokemonurpg.com:8443" : "https://pokemonurpg:8443";
+        this.environment = options.environment;
+        this.baseUrl = this.environment ? "https://" + this.environment + ".pokemonurpg.com:8443" : "https://pokemonurpg:8443";
     }
     return UrpgClient;
 }());

@@ -5,23 +5,16 @@ import { IAbility, IAttack, IPokemon } from "./models/models";
 export type UrpgApiEnvrionment = "staging" | undefined;
 
 export interface UrpgApiOptions {
-    token?: string;
     environment?: UrpgApiEnvrionment;
 }
 
+/**
+ * The main hub for interacting with the URPG API
+ */
 export class UrpgClient {
-    private token?: string;
-    private env?: string;
+    private environment?: string;
 
     public baseUrl: string;
-
-    public constructor(options?: UrpgApiOptions) {
-        this.token = options.token;
-        this.env = options.environment;
-
-        this.baseUrl = this.env ? `https://${this.env}.pokemonurpg.com:8443` : "https://pokemonurpg:8443";
-    }
-
     public ability = new ReadWriteEndpoint<IAbility>("ability", this);
     public artRank = new ReadEndpoint("artrank", this);
     public attackCategory = new ReadEndpoint("attackcateory", this);
@@ -35,6 +28,18 @@ export class UrpgClient {
     public pokemon = new ReadWriteEndpoint<IPokemon>("pokemon", this);
     public storyRank = new ReadEndpoint("storyrank", this);
     public type = new ReadEndpoint("type", this);
+
+
+    /**
+     * @param {Object} [options] Options
+     * @param {string} [options.environment] The non-prod API environment to connect to
+     * @param {number} [options.cacheTime=60000] The time, in ms, to cache data for
+     */
+    public constructor(options: UrpgApiOptions = {}) {
+        this.environment = options.environment;
+
+        this.baseUrl = this.environment ? `https://${this.environment}.pokemonurpg.com:8443` : "https://pokemonurpg:8443";
+    }
 }
 
 module.exports.UrpgClient = UrpgClient;

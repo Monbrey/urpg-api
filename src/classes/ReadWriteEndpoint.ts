@@ -4,6 +4,8 @@ import { ReadEndpoint } from "./ReadEndpoint";
 import { RequestHandler } from "./RequestHandler";
 
 class ReadWriteEndpoint<T> extends ReadEndpoint {
+    private targetStrings;
+
     public constructor(resource: string, client: UrpgClient) {
         super(resource, client);
     }
@@ -19,13 +21,13 @@ class ReadWriteEndpoint<T> extends ReadEndpoint {
 
     public async getClosest(name: string): Promise<Matched<T>> {
         if(!this.cache) await super.get();
+        if(!this.targetStrings) this.targetStrings = this.cache.map(v => v.toLowerCase());
 
-        const { bestMatch } = findBestMatch(name, this.cache);
+        const { bestMatch } = findBestMatch(name.toLowerCase(), this.targetStrings);
         return {
             rating: bestMatch.rating,
-            value: await this.get(bestMatch.target)
+            value: await this.get(this.cache[this.targetStrings.indexOf(bestMatch.target)])
         };
-
     }
 
     public static post(): void {

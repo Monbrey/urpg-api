@@ -42,6 +42,11 @@ var ReadEndpoint = /** @class */ (function () {
         this.resource = resource;
         this.client = client;
     }
+    /**
+     * Sends a GET request to this endpoint
+     * Read-only endpoints return a list of all names
+     * @returns {string[]}
+     */
     ReadEndpoint.prototype.get = function () {
         return __awaiter(this, void 0, void 0, function () {
             var url, _a;
