@@ -38,7 +38,7 @@ export class UrpgClient {
     public constructor(options: UrpgApiOptions = {}) {
         this.environment = options.environment;
 
-        this.baseUrl = this.environment ? `https://${this.environment}.pokemonurpg.com:8443` : "https://pokemonurpg:8443";
+        this.baseUrl = this.environment ? `https://${this.environment}.pokemonurpg.com:8443` : "https://pokemonurpg.com:8443";
     }
 }
 

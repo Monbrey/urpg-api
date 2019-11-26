@@ -27,7 +27,7 @@ var UrpgClient = /** @class */ (function () {
         this.storyRank = new ReadEndpoint_1.ReadEndpoint("storyrank", this);
         this.type = new ReadEndpoint_1.ReadEndpoint("type", this);
         this.environment = options.environment;
-        this.baseUrl = this.environment ? "https://" + this.environment + ".pokemonurpg.com:8443" : "https://pokemonurpg:8443";
+        this.baseUrl = this.environment ? "https://" + this.environment + ".pokemonurpg.com:8443" : "https://pokemonurpg.com:8443";
     }
     return UrpgClient;
 }());
