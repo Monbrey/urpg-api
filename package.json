@@ -1,6 +1,6 @@
 {
     "name": "urpg.js",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "description": "Fully typed Javascript wrapper for the Pokemon URPG API",
     "files": [
         "dist/**/*"
