@@ -39,7 +39,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var node_fetch_1 = __importDefault(require("node-fetch"));
+var cross_fetch_1 = __importDefault(require("cross-fetch"));
 var RequestHandler = /** @class */ (function () {
     function RequestHandler() {
     }
@@ -49,7 +49,7 @@ var RequestHandler = /** @class */ (function () {
             var res, json;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, node_fetch_1.default(url, { method: method })];
+                    case 0: return [4 /*yield*/, cross_fetch_1.default(url, { method: method })];
                     case 1:
                         res = _a.sent();
                         return [4 /*yield*/, res.json()];

@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import fetch from "cross-fetch";
 
 class RequestHandler {
     public static async handle(url: string, method?: string): Promise<string[]>;
