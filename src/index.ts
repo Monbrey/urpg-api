@@ -1,6 +1,6 @@
 import { ReadEndpoint } from "./classes/ReadEndpoint";
 import { ReadWriteEndpoint } from "./classes/ReadWriteEndpoint";
-import { IAbility, IAttack, IPokemon } from "./models/models";
+import { Ability, Attack, Pokemon } from "./models/models";
 
 export type UrpgApiEnvrionment = "staging" | undefined;
 
@@ -15,17 +15,18 @@ export class UrpgClient {
     private environment?: string;
 
     public baseUrl: string;
-    public ability = new ReadWriteEndpoint<IAbility>("ability", this);
+    public ability = new ReadWriteEndpoint<Ability>("ability", this);
     public artRank = new ReadEndpoint("artrank", this);
     public attackCategory = new ReadEndpoint("attackcateory", this);
-    public attack = new ReadWriteEndpoint<IAttack>("attack", this);
+    public attack = new ReadWriteEndpoint<Attack>("attack", this);
     public attackTargetType = new ReadEndpoint("attacktargettype", this);
     public dppContestMoveType = new ReadEndpoint("dppContestMoveType", this);
+    public item = new ReadEndpoint("item", this);
     public orasContestMoveType = new ReadEndpoint("orasContestMoveType", this);
     public parkLocation = new ReadEndpoint("parkLocation", this);
     public parkRank = new ReadEndpoint("parkrank", this);
     public rseContestMoveType = new ReadEndpoint("rseContestMoveType", this);
-    public pokemon = new ReadWriteEndpoint<IPokemon>("pokemon", this);
+    public pokemon = new ReadWriteEndpoint<Pokemon>("pokemon", this);
     public storyRank = new ReadEndpoint("storyrank", this);
     public type = new ReadEndpoint("type", this);
 

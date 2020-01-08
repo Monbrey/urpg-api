@@ -3,13 +3,13 @@ export type PokemonType =
 "FLYING" | "ELECTRIC" | "GROUND" | "FAIRY" | "FIGHTING" | "PSYCHIC" |
 "ROCK" | "STEEL" | "ICE" | "GHOST" | "DRAGON" | "DARK";
 
-export interface IAbility {
+export interface Ability {
     dbid: number;
     name: string;
     description: string;
 }
 
-export interface IAttack {
+export interface Attack {
     dbid: number;
     name: string;
     type: PokemonType;
@@ -18,27 +18,27 @@ export interface IAttack {
     accuracy: number;
     pp: number;
     category: string;
-    target: IAttackTarget;
+    target: AttackTarget;
     contact: boolean;
     snatch: boolean;
     substitute: boolean;
     sheerForce: boolean;
     magicCoat: boolean;
     rseContestAttribute: string;
-    rseContestMoveType: IContestMoveType;
+    rseContestMoveType: ContestMoveType;
     dppContestAttribute: string;
-    dppContestMoveType: IContestMoveType;
+    dppContestMoveType: ContestMoveType;
     orasContestAttribute: string;
-    orasContestMoveType: IContestMoveType;
+    orasContestMoveType: ContestMoveType;
 }
 
-export interface IAttackTarget {
+export interface AttackTarget {
     dbid: number;
     name: string;
     description: string;
 }
 
-export interface IBasePokemon {
+export interface BasePokemon {
     dbid: number;
     dexno: number;
     name: string;
@@ -56,17 +56,17 @@ export interface IBasePokemon {
     maleAllowed: boolean;
     femaleAllowed: boolean;
     pokemart: number;
-    storyRank: ICreativeRank;
-    artRank: ICreativeRank;
-    parkRank: ICreativeRank;
-    parkLocation: ILocation;
+    storyRank: CreativeRank;
+    artRank: CreativeRank;
+    parkRank: CreativeRank;
+    parkLocation: Location;
     contestCredits: number;
     displayName: string;
     formName: string;
-    typeMatchups: ITypeMatchup[];
+    typeMatchups: TypeMatchup[];
 }
 
-export interface IContestMoveType {
+export interface ContestMoveType {
     dbid: number;
     name: string;
     description: string;
@@ -74,13 +74,13 @@ export interface IContestMoveType {
     jam: number;
 }
 
-export interface ICreativeRank {
+export interface CreativeRank {
     dbid: number;
     name: string;
     requirement: string;
 }
 
-export interface IEvolution {
+export interface Evolution {
     dbid: number;
     name: string;
     displayName: string;
@@ -88,51 +88,51 @@ export interface IEvolution {
     dexno: number;
 }
 
-export interface IEvolvesFrom {
+export interface EvolvesFrom {
     name: string;
     method: string;
 }
 
-export interface ILocation {
+export interface Location {
     dbid: number;
     name: string;
 }
 
-export interface IMegaEvolvesFrom {
+export interface MegaEvolvesFrom {
     name: string;
     megastone: string;
 }
 
-export interface IPokemon extends IBasePokemon {
+export interface Pokemon extends BasePokemon {
     type1: PokemonType;
     type2: PokemonType;
-    attacks: IPokemonAttack[];
-    abilities: IPokemonAbility[];
+    attacks: PokemonAttack[];
+    abilities: PokemonAbility[];
     alteredForms: any;
     uniqueMoves: any;
-    evolutionFamily: IEvolution[][];
-    megaEvolutions: IPokemonMega[];
-    evolvesFrom: IEvolvesFrom;
-    megaEvolvesFrom: IMegaEvolvesFrom;
+    evolutionFamily: Evolution[][];
+    megaEvolutions: PokemonMega[];
+    evolvesFrom: EvolvesFrom;
+    megaEvolvesFrom: MegaEvolvesFrom;
 }
 
-export interface IPokemonAbility extends IAbility {
+export interface PokemonAbility extends Ability {
     hidden: boolean;
 }
 
-export interface IPokemonAttack extends IAttack {
+export interface PokemonAttack extends Attack {
     method: string;
     generation: number;
 }
 
-export interface IPokemonMega extends IBasePokemon {
+export interface PokemonMega extends BasePokemon {
     type1: PokemonType;
     type2?: PokemonType;
-    ability: IPokemonAbility;
+    ability: PokemonAbility;
     megastone: string;
 }
 
-export interface ITypeMatchup {
+export interface TypeMatchup {
     name: string;
     multiplier: number;
 }
