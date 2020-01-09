@@ -1,7 +1,7 @@
 export type PokemonType =
-"NORMAL" | "GRASS" | "FIRE" | "WATER" | "BUG" | "POISON" |
-"FLYING" | "ELECTRIC" | "GROUND" | "FAIRY" | "FIGHTING" | "PSYCHIC" |
-"ROCK" | "STEEL" | "ICE" | "GHOST" | "DRAGON" | "DARK";
+    "NONE" | "NORMAL" | "GRASS" | "FIRE" | "WATER" | "BUG" | "POISON" |
+    "FLYING" | "ELECTRIC" | "GROUND" | "FAIRY" | "FIGHTING" | "PSYCHIC" |
+    "ROCK" | "STEEL" | "ICE" | "GHOST" | "DRAGON" | "DARK";
 
 export interface Ability {
     dbid: number;
