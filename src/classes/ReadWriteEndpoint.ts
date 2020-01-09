@@ -1,5 +1,6 @@
 import { findBestMatch } from "string-similarity";
 import { Matched, UrpgClient } from "..";
+import { DataHandler } from "./DataHandler";
 import { ReadEndpoint } from "./ReadEndpoint";
 import { RequestHandler } from "./RequestHandler";
 
@@ -16,7 +17,7 @@ class ReadWriteEndpoint<T> extends ReadEndpoint {
         if(!name) return super.get();
 
         const url = `${this.client.baseUrl}/${this.resource}/${name}`;
-        return RequestHandler.handle<T>(url);
+        return this.client.castToNull ? DataHandler.castNulls<T>(await RequestHandler.handle<T>(url)) : await RequestHandler.handle<T>(url);
     }
 
     public async getClosest(name: string): Promise<Matched<T>> {

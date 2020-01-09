@@ -50,6 +50,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var string_similarity_1 = require("string-similarity");
+var DataHandler_1 = require("./DataHandler");
 var ReadEndpoint_1 = require("./ReadEndpoint");
 var RequestHandler_1 = require("./RequestHandler");
 var ReadWriteEndpoint = /** @class */ (function (_super) {
@@ -59,12 +60,25 @@ var ReadWriteEndpoint = /** @class */ (function (_super) {
     }
     ReadWriteEndpoint.prototype.get = function (name) {
         return __awaiter(this, void 0, void 0, function () {
-            var url;
-            return __generator(this, function (_a) {
-                if (!name)
-                    return [2 /*return*/, _super.prototype.get.call(this)];
-                url = this.client.baseUrl + "/" + this.resource + "/" + name;
-                return [2 /*return*/, RequestHandler_1.RequestHandler.handle(url)];
+            var url, _a, _b, _c;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        if (!name)
+                            return [2 /*return*/, _super.prototype.get.call(this)];
+                        url = this.client.baseUrl + "/" + this.resource + "/" + name;
+                        if (!this.client.castToNull) return [3 /*break*/, 2];
+                        _c = (_b = DataHandler_1.DataHandler).castNulls;
+                        return [4 /*yield*/, RequestHandler_1.RequestHandler.handle(url)];
+                    case 1:
+                        _a = _c.apply(_b, [_d.sent()]);
+                        return [3 /*break*/, 4];
+                    case 2: return [4 /*yield*/, RequestHandler_1.RequestHandler.handle(url)];
+                    case 3:
+                        _a = _d.sent();
+                        _d.label = 4;
+                    case 4: return [2 /*return*/, _a];
+                }
             });
         });
     };

@@ -19,6 +19,7 @@ var UrpgClient = /** @class */ (function () {
         this.attack = new ReadWriteEndpoint_1.ReadWriteEndpoint("attack", this);
         this.attackTargetType = new ReadEndpoint_1.ReadEndpoint("attacktargettype", this);
         this.dppContestMoveType = new ReadEndpoint_1.ReadEndpoint("dppContestMoveType", this);
+        this.item = new ReadEndpoint_1.ReadEndpoint("item", this);
         this.orasContestMoveType = new ReadEndpoint_1.ReadEndpoint("orasContestMoveType", this);
         this.parkLocation = new ReadEndpoint_1.ReadEndpoint("parkLocation", this);
         this.parkRank = new ReadEndpoint_1.ReadEndpoint("parkrank", this);
@@ -27,6 +28,7 @@ var UrpgClient = /** @class */ (function () {
         this.storyRank = new ReadEndpoint_1.ReadEndpoint("storyrank", this);
         this.type = new ReadEndpoint_1.ReadEndpoint("type", this);
         this.environment = options.environment;
+        this.castToNull = options.castToNull;
         this.baseUrl = this.environment ? "https://" + this.environment + ".pokemonurpg.com:8443" : "https://pokemonurpg.com:8443";
     }
     return UrpgClient;

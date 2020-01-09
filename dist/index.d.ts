@@ -1,27 +1,30 @@
 import { ReadEndpoint } from "./classes/ReadEndpoint";
 import { ReadWriteEndpoint } from "./classes/ReadWriteEndpoint";
-import { IAbility, IAttack, IPokemon } from "./models/models";
+import { Ability, Attack, Pokemon } from "./models/models";
 export declare type UrpgApiEnvrionment = "staging" | undefined;
 export interface UrpgApiOptions {
     environment?: UrpgApiEnvrionment;
+    castToNull?: boolean;
 }
 /**
  * The main hub for interacting with the URPG API
  */
 export declare class UrpgClient {
     private environment?;
+    castToNull?: boolean;
     baseUrl: string;
-    ability: ReadWriteEndpoint<IAbility>;
+    ability: ReadWriteEndpoint<Ability>;
     artRank: ReadEndpoint;
     attackCategory: ReadEndpoint;
-    attack: ReadWriteEndpoint<IAttack>;
+    attack: ReadWriteEndpoint<Attack>;
     attackTargetType: ReadEndpoint;
     dppContestMoveType: ReadEndpoint;
+    item: ReadEndpoint;
     orasContestMoveType: ReadEndpoint;
     parkLocation: ReadEndpoint;
     parkRank: ReadEndpoint;
     rseContestMoveType: ReadEndpoint;
-    pokemon: ReadWriteEndpoint<IPokemon>;
+    pokemon: ReadWriteEndpoint<Pokemon>;
     storyRank: ReadEndpoint;
     type: ReadEndpoint;
     /**

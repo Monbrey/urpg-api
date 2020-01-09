@@ -6,6 +6,7 @@ export type UrpgApiEnvrionment = "staging" | undefined;
 
 export interface UrpgApiOptions {
     environment?: UrpgApiEnvrionment;
+    castToNull?: boolean;
 }
 
 /**
@@ -13,6 +14,8 @@ export interface UrpgApiOptions {
  */
 export class UrpgClient {
     private environment?: string;
+
+    public castToNull?: boolean;
 
     public baseUrl: string;
     public ability = new ReadWriteEndpoint<Ability>("ability", this);
@@ -30,7 +33,6 @@ export class UrpgClient {
     public storyRank = new ReadEndpoint("storyrank", this);
     public type = new ReadEndpoint("type", this);
 
-
     /**
      * @param {Object} [options] Options
      * @param {string} [options.environment] The non-prod API environment to connect to
@@ -38,6 +40,7 @@ export class UrpgClient {
      */
     public constructor(options: UrpgApiOptions = {}) {
         this.environment = options.environment;
+        this.castToNull = options.castToNull;
 
         this.baseUrl = this.environment ? `https://${this.environment}.pokemonurpg.com:8443` : "https://pokemonurpg.com:8443";
     }
@@ -46,3 +49,4 @@ export class UrpgClient {
 module.exports.UrpgClient = UrpgClient;
 
 export * from "./models/models";
+
