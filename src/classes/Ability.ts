@@ -8,10 +8,6 @@ export class AbilityEndpoint extends CrudEndpoint<Ability> {
         super(client, "ability");
     }
 
-    public async fetch(name: string): Promise<Ability> {
-        return RequestHandler.handle<Ability>(`${this.url}/${name}`);
-    }
-
     public async create(): Promise<Ability> {
         throw new Error("Method not implemented.");
     }

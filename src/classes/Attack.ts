@@ -8,10 +8,6 @@ export class AttackEndpoint extends CrudEndpoint<Attack> {
         super(client, "attack");
     }
 
-    public async fetch(name: string): Promise<Attack> {
-        return RequestHandler.handle<Attack>(`${this.url}/${name}`);
-    }
-
     public async create(): Promise<Attack> {
         throw new Error("Method not implemented.");
     }

@@ -17,6 +17,11 @@ import { TypeEndpoint } from "../classes/Type";
 import { UserEndpoint } from "../classes/User";
 import { EnvironmentName, Environments } from "../util/Constants";
 
+export interface ClientOptions {
+    environment: EnvironmentName;
+    nullHandling: boolean;
+}
+
 export class Client {
     public readonly baseUrl: string;
     public readonly nullHandling: boolean;
@@ -39,9 +44,9 @@ export class Client {
     public readonly type: TypeEndpoint;
     public readonly user: UserEndpoint;
 
-    public constructor(environment: EnvironmentName = "production", nullHandling = false) {
-        this.baseUrl = Environments[environment];
-        this.nullHandling = nullHandling;
+    public constructor(options: ClientOptions = { environment: "production", nullHandling: false }) {
+        this.baseUrl = Environments[options.environment];
+        this.nullHandling = options.nullHandling;
 
         this.ability = new AbilityEndpoint(this);
         this.artRank = new ArtRankEndpoint(this);
