@@ -1,7 +1,6 @@
 import type { Client } from "../client/Client";
 import { Role } from "../models";
 import { CrudEndpoint } from "../rest/CrudEndpoint";
-import { RequestHandler } from "../rest/RequestHandler";
 
 export class RoleEndpoint extends CrudEndpoint<Role> {
     public constructor(client: Client) {

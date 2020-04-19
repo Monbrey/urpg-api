@@ -1,7 +1,6 @@
 import type { Client } from "../client/Client";
 import { Ability } from "../models";
 import { CrudEndpoint } from "../rest/CrudEndpoint";
-import { RequestHandler } from "../rest/RequestHandler";
 
 export class AbilityEndpoint extends CrudEndpoint<Ability> {
     public constructor(client: Client) {

@@ -1,6 +1,6 @@
 import fetch from "cross-fetch";
 import { mocked } from "ts-jest/utils";
-import { Ability, Client } from "../client/Client";
+import { Client } from "../client/Client";
 
 jest.mock("cross-fetch")
 const fetchMock = mocked(fetch, true);
