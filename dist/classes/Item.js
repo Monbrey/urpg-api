@@ -10,15 +10,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const CrudEndpoint_1 = require("../rest/CrudEndpoint");
-const RequestHandler_1 = require("../rest/RequestHandler");
 class ItemEndpoint extends CrudEndpoint_1.CrudEndpoint {
     constructor(client) {
         super(client, "item");
-    }
-    fetch(name) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return RequestHandler_1.RequestHandler.handle(`${this.url}/${name}`);
-        });
     }
     create() {
         return __awaiter(this, void 0, void 0, function* () {

@@ -1,7 +1,10 @@
-const EnvironmentNames = ['production', 'staging'] as const;
+
+const EnvironmentNames = ['production', 'staging'];
 export type EnvironmentName = typeof EnvironmentNames[number];
 
-export const Environments: Record<EnvironmentName, string> = {
+export const Environments = {
     production: "https://pokemonurpg.com:8443",
     staging: "https://staging.pokemonurpg.com:8443"
-} as const;
+};
+
+export const DefaultOptions = { environment: "production", nullHandling: false }

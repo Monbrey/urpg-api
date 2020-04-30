@@ -23,7 +23,7 @@ class CrudEndpoint extends BaseEndpoint_1.BaseEndpoint {
             return this.client.nullHandling ? Util_1.castNulls(value) : value;
         });
     }
-    fetchSimilar(name) {
+    fetchClosest(name) {
         return __awaiter(this, void 0, void 0, function* () {
             const list = yield this.list();
             const { bestMatch: { rating }, bestMatchIndex } = string_similarity_1.findBestMatch(name, list.map(x => x.toLowerCase()));

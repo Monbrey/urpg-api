@@ -15,11 +15,6 @@ class SpeciesEndpoint extends CrudEndpoint_1.CrudEndpoint {
     constructor(client) {
         super(client, "attack");
     }
-    fetch(name) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return RequestHandler_1.RequestHandler.handle(`${this.url}/${name}`);
-        });
-    }
     create() {
         return __awaiter(this, void 0, void 0, function* () {
             throw new Error("Method not implemented.");

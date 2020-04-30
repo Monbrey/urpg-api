@@ -16,6 +16,10 @@ import { StoryRankEndpoint } from "../classes/StoryRank";
 import { TypeEndpoint } from "../classes/Type";
 import { UserEndpoint } from "../classes/User";
 import { EnvironmentName } from "../util/Constants";
+export interface ClientOptions {
+    environment?: EnvironmentName;
+    nullHandling?: boolean;
+}
 export declare class Client {
     readonly baseUrl: string;
     readonly nullHandling: boolean;
@@ -36,6 +40,6 @@ export declare class Client {
     readonly storyRank: StoryRankEndpoint;
     readonly type: TypeEndpoint;
     readonly user: UserEndpoint;
-    constructor(environment?: EnvironmentName, nullHandling?: boolean);
+    constructor(options?: ClientOptions);
 }
 export * from "../models";

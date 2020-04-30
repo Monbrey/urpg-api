@@ -15,11 +15,11 @@ import { SpeciesEndpoint } from "../classes/Species";
 import { StoryRankEndpoint } from "../classes/StoryRank";
 import { TypeEndpoint } from "../classes/Type";
 import { UserEndpoint } from "../classes/User";
-import { EnvironmentName, Environments } from "../util/Constants";
+import { DefaultOptions, EnvironmentName, Environments } from "../util/Constants";
 
 export interface ClientOptions {
-    environment: EnvironmentName;
-    nullHandling: boolean;
+    environment?: EnvironmentName;
+    nullHandling?: boolean;
 }
 
 export class Client {
@@ -44,7 +44,7 @@ export class Client {
     public readonly type: TypeEndpoint;
     public readonly user: UserEndpoint;
 
-    public constructor(options: ClientOptions = { environment: "production", nullHandling: false }) {
+    public constructor(options: ClientOptions = DefaultOptions) {
         this.baseUrl = Environments[options.environment];
         this.nullHandling = options.nullHandling;
 
@@ -71,3 +71,4 @@ export class Client {
 module.exports.Client = Client;
 
 export * from "../models";
+

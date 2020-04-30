@@ -5,3 +5,4 @@ exports.Environments = {
     production: "https://pokemonurpg.com:8443",
     staging: "https://staging.pokemonurpg.com:8443"
 };
+exports.DefaultOptions = { environment: "production", nullHandling: false };

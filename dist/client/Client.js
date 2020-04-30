@@ -19,9 +19,9 @@ const Type_1 = require("../classes/Type");
 const User_1 = require("../classes/User");
 const Constants_1 = require("../util/Constants");
 class Client {
-    constructor(environment = "production", nullHandling = false) {
-        this.baseUrl = Constants_1.Environments[environment];
-        this.nullHandling = nullHandling;
+    constructor(options = Constants_1.DefaultOptions) {
+        this.baseUrl = Constants_1.Environments[options.environment];
+        this.nullHandling = options.nullHandling;
         this.ability = new Ability_1.AbilityEndpoint(this);
         this.artRank = new ArtRank_1.ArtRankEndpoint(this);
         this.attack = new Attack_1.AttackEndpoint(this);
