@@ -17,7 +17,7 @@ export abstract class CrudEndpoint<T = unknown> extends BaseEndpoint {
 
     public async fetchClosest(name: string): Promise<Matched<T>> {
         const list = await this.list();
-        const { bestMatch: { rating }, bestMatchIndex } = findBestMatch(name, list.map(x => x.toLowerCase()));
+        const { bestMatch: { rating }, bestMatchIndex } = findBestMatch(name.toLowerCase(), list.map(x => x.toLowerCase()));
         const value = await this.fetch(list[bestMatchIndex]);
 
         return { rating, value: this.client.nullHandling ? castNulls<T>(value) : value }
