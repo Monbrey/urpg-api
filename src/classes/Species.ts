@@ -5,7 +5,7 @@ import { RequestHandler } from "../rest/RequestHandler";
 
 export class SpeciesEndpoint extends CrudEndpoint<Species> {
     public constructor(client: Client) {
-        super(client, "attack");
+        super(client, "species");
     }
 
     public async create(): Promise<Species> {
