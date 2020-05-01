@@ -3,6 +3,6 @@ import { BaseEndpoint } from "../rest/BaseEndpoint";
 
 export class AttackTargetTypeEndpoint extends BaseEndpoint {
     public constructor(client: Client) {
-        super(client, "attackTargetType");
+        super(client, "attacktargettype");
     }
 }
