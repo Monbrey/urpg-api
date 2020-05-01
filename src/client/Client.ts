@@ -44,8 +44,8 @@ export class Client {
     public readonly type: TypeEndpoint;
     public readonly user: UserEndpoint;
 
-    public constructor(options: ClientOptions = DefaultOptions) {
-        this.baseUrl = Environments[options.environment];
+    public constructor(options: ClientOptions = {}) {
+        this.baseUrl = Environments[options.environment || "production"];
         this.nullHandling = options.nullHandling;
 
         this.ability = new AbilityEndpoint(this);
