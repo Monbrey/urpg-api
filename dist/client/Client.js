@@ -1,12 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Ability_1 = require("../classes/Ability");
+const AdvancedContestMoveType_1 = require("../classes/AdvancedContestMoveType");
 const ArtRank_1 = require("../classes/ArtRank");
 const Attack_1 = require("../classes/Attack");
 const AttackCategory_1 = require("../classes/AttackCategory");
 const AttackTargetType_1 = require("../classes/AttackTargetType");
+const ContestAttribute_1 = require("../classes/ContestAttribute");
 const DppContestMoveType_1 = require("../classes/DppContestMoveType");
 const Item_1 = require("../classes/Item");
+const Nature_1 = require("../classes/Nature");
 const OrasContestMoveType_1 = require("../classes/OrasContestMoveType");
 const ParkLocation_1 = require("../classes/ParkLocation");
 const ParkRank_1 = require("../classes/ParkRank");
@@ -19,16 +22,19 @@ const Type_1 = require("../classes/Type");
 const User_1 = require("../classes/User");
 const Constants_1 = require("../util/Constants");
 class Client {
-    constructor(options = Constants_1.DefaultOptions) {
-        this.baseUrl = Constants_1.Environments[options.environment];
+    constructor(options = {}) {
+        this.baseUrl = Constants_1.Environments[options.environment || "production"];
         this.nullHandling = options.nullHandling;
         this.ability = new Ability_1.AbilityEndpoint(this);
+        this.advContestMoveType = new AdvancedContestMoveType_1.AdvancedContestMoveType(this);
         this.artRank = new ArtRank_1.ArtRankEndpoint(this);
         this.attack = new Attack_1.AttackEndpoint(this);
         this.attackCategory = new AttackCategory_1.AttackCategoryEndpoint(this);
         this.attackTargetType = new AttackTargetType_1.AttackTargetTypeEndpoint(this);
+        this.contestAttribute = new ContestAttribute_1.ContestAttributeEndpoint(this);
         this.dppContestMoveType = new DppContestMoveType_1.DppContestMoveTypeEndpoint(this);
         this.item = new Item_1.ItemEndpoint(this);
+        this.nature = new Nature_1.NatureEndpoint(this);
         this.orasContestMoveType = new OrasContestMoveType_1.OrasContestMoveTypeEndpoint(this);
         this.parkLocation = new ParkLocation_1.ParkLocationEndpoint(this);
         this.parkRank = new ParkRank_1.ParkRankEndpoint(this);

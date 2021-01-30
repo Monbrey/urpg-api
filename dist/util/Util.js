@@ -18,3 +18,14 @@ function castNulls(data) {
     return Object.assign({}, data);
 }
 exports.castNulls = castNulls;
+function flattenObjects(data) {
+    if (typeof data !== "object")
+        return;
+    for (const key in data) {
+        if (typeof data[key] === "object" && Object.keys(data[key]).every(k => ["dbid", "name"].includes(k))) {
+            data[key] = data[key].name;
+        }
+    }
+    return Object.assign({}, data);
+}
+exports.flattenObjects = flattenObjects;

@@ -3,7 +3,7 @@ import { Client } from "../client/Client";
 import { Matched } from "../models";
 import { BaseEndpoint } from "./BaseEndpoint";
 import { RequestHandler } from "./RequestHandler";
-import { castNulls } from "../util/Util";
+import { castNulls, flattenObjects } from "../util/Util";
 
 export abstract class CrudEndpoint<T = unknown> extends BaseEndpoint {
     public constructor(client: Client, resource: string) {
@@ -12,7 +12,7 @@ export abstract class CrudEndpoint<T = unknown> extends BaseEndpoint {
 
     public async fetch(name: string): Promise<T> {
         const value = await RequestHandler.handle<T>(`${this.url}/${name}`);
-        return this.client.nullHandling ? castNulls<T>(value) : value;
+        return flattenObjects(this.client.nullHandling ? castNulls<T>(value) : value);
     }
 
     public async fetchClosest(name: string): Promise<Matched<T>> {
@@ -20,10 +20,10 @@ export abstract class CrudEndpoint<T = unknown> extends BaseEndpoint {
         const { bestMatch: { rating }, bestMatchIndex } = findBestMatch(name.toLowerCase(), list.map(x => x.toLowerCase()));
         const value = await this.fetch(list[bestMatchIndex]);
 
-        return { rating, value: this.client.nullHandling ? castNulls<T>(value) : value }
+        return { rating, value: flattenObjects(this.client.nullHandling ? castNulls<T>(value) : value) }
     }
 
-    public abstract async create(): Promise<T>;
-    public abstract async update(): Promise<T>;
-    public abstract async delete(): Promise<T>;
+    public abstract create(): Promise<T>;
+    public abstract update(): Promise<T>;
+    public abstract delete(): Promise<T>;
 }

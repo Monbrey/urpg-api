@@ -2,9 +2,9 @@ import type { Client } from "../client/Client";
 import { ContestMoveType } from "../models";
 import { CrudEndpoint } from "../rest/CrudEndpoint";
 
-export class RseContestMoveTypeEndpoint extends CrudEndpoint<ContestMoveType> {
+export class AdvancedContestMoveType extends CrudEndpoint<ContestMoveType> {
     public constructor(client: Client) {
-        super(client, "rseContestMoveType");
+        super(client, "advContestMoveType");
     }
 
     public async create(): Promise<ContestMoveType> {

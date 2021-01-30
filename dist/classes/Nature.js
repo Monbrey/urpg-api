@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const BaseEndpoint_1 = require("../rest/BaseEndpoint");
-class ParkLocationEndpoint extends BaseEndpoint_1.BaseEndpoint {
+class NatureEndpoint extends BaseEndpoint_1.BaseEndpoint {
     constructor(client) {
-        super(client, "parklocation");
+        super(client, "nature");
     }
 }
-exports.ParkLocationEndpoint = ParkLocationEndpoint;
+exports.NatureEndpoint = NatureEndpoint;

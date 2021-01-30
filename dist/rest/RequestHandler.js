@@ -18,9 +18,9 @@ class RequestHandler {
         return __awaiter(this, void 0, void 0, function* () {
             const res = yield cross_fetch_1.default(url, { method });
             const json = yield res.json();
-            if (json.status === 200)
-                return json.data;
-            throw new Error(json.data);
+            if (res.status === 200)
+                return json;
+            throw new Error(`${json.status} ${json.error}\n${JSON.stringify(json, null, 2)}`);
         });
     }
 }

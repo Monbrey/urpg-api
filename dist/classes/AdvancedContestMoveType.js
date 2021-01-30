@@ -10,9 +10,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const CrudEndpoint_1 = require("../rest/CrudEndpoint");
-class RseContestMoveTypeEndpoint extends CrudEndpoint_1.CrudEndpoint {
+class AdvancedContestMoveType extends CrudEndpoint_1.CrudEndpoint {
     constructor(client) {
-        super(client, "rseContestMoveType");
+        super(client, "advContestMoveType");
     }
     create() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -30,4 +30,4 @@ class RseContestMoveTypeEndpoint extends CrudEndpoint_1.CrudEndpoint {
         });
     }
 }
-exports.RseContestMoveTypeEndpoint = RseContestMoveTypeEndpoint;
+exports.AdvancedContestMoveType = AdvancedContestMoveType;

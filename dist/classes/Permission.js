@@ -9,12 +9,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const BaseEndpoint_1 = require("../rest/BaseEndpoint");
-class PermissionEndpoint extends BaseEndpoint_1.BaseEndpoint {
+const CrudEndpoint_1 = require("../rest/CrudEndpoint");
+class PermissionEndpoint extends CrudEndpoint_1.CrudEndpoint {
     constructor(client) {
         super(client, "permission");
     }
     create() {
+        return __awaiter(this, void 0, void 0, function* () {
+            throw new Error("Method not implemented.");
+        });
+    }
+    update() {
+        return __awaiter(this, void 0, void 0, function* () {
+            throw new Error("Method not implemented.");
+        });
+    }
+    delete() {
         return __awaiter(this, void 0, void 0, function* () {
             throw new Error("Method not implemented.");
         });

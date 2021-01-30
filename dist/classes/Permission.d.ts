@@ -1,6 +1,8 @@
 import type { Client } from "../client/Client";
-import { BaseEndpoint } from "../rest/BaseEndpoint";
-export declare class PermissionEndpoint extends BaseEndpoint {
+import { CrudEndpoint } from "../rest/CrudEndpoint";
+export declare class PermissionEndpoint extends CrudEndpoint {
     constructor(client: Client);
     create(): Promise<unknown>;
+    update(): Promise<unknown>;
+    delete(): Promise<unknown>;
 }

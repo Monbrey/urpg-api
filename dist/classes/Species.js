@@ -13,7 +13,7 @@ const CrudEndpoint_1 = require("../rest/CrudEndpoint");
 const RequestHandler_1 = require("../rest/RequestHandler");
 class SpeciesEndpoint extends CrudEndpoint_1.CrudEndpoint {
     constructor(client) {
-        super(client, "attack");
+        super(client, "pokemon");
     }
     create() {
         return __awaiter(this, void 0, void 0, function* () {

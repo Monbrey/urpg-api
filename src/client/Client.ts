@@ -1,10 +1,13 @@
 import { AbilityEndpoint } from "../classes/Ability";
+import { AdvancedContestMoveType } from "../classes/AdvancedContestMoveType";
 import { ArtRankEndpoint } from "../classes/ArtRank";
 import { AttackEndpoint } from "../classes/Attack";
 import { AttackCategoryEndpoint } from "../classes/AttackCategory";
 import { AttackTargetTypeEndpoint } from "../classes/AttackTargetType";
+import { ContestAttributeEndpoint } from "../classes/ContestAttribute";
 import { DppContestMoveTypeEndpoint } from "../classes/DppContestMoveType";
 import { ItemEndpoint } from "../classes/Item";
+import { NatureEndpoint } from "../classes/Nature";
 import { OrasContestMoveTypeEndpoint } from "../classes/OrasContestMoveType";
 import { ParkLocationEndpoint } from "../classes/ParkLocation";
 import { ParkRankEndpoint } from "../classes/ParkRank";
@@ -15,7 +18,7 @@ import { SpeciesEndpoint } from "../classes/Species";
 import { StoryRankEndpoint } from "../classes/StoryRank";
 import { TypeEndpoint } from "../classes/Type";
 import { UserEndpoint } from "../classes/User";
-import { DefaultOptions, EnvironmentName, Environments } from "../util/Constants";
+import { EnvironmentName, Environments } from "../util/Constants";
 
 export interface ClientOptions {
     environment?: EnvironmentName;
@@ -27,12 +30,15 @@ export class Client {
     public readonly nullHandling: boolean;
 
     public readonly ability: AbilityEndpoint;
+    public readonly advContestMoveType: AdvancedContestMoveType;
     public readonly artRank: ArtRankEndpoint;
     public readonly attack: AttackEndpoint;
     public readonly attackCategory: AttackCategoryEndpoint;
     public readonly attackTargetType: AttackTargetTypeEndpoint;
+    public readonly contestAttribute: ContestAttributeEndpoint;
     public readonly dppContestMoveType: DppContestMoveTypeEndpoint;
     public readonly item: ItemEndpoint;
+    public readonly nature: NatureEndpoint;
     public readonly orasContestMoveType: OrasContestMoveTypeEndpoint;
     public readonly parkLocation: ParkLocationEndpoint;
     public readonly parkRank: ParkRankEndpoint;
@@ -49,12 +55,15 @@ export class Client {
         this.nullHandling = options.nullHandling;
 
         this.ability = new AbilityEndpoint(this);
+        this.advContestMoveType = new AdvancedContestMoveType(this);
         this.artRank = new ArtRankEndpoint(this);
         this.attack = new AttackEndpoint(this);
         this.attackCategory = new AttackCategoryEndpoint(this);
         this.attackTargetType = new AttackTargetTypeEndpoint(this);
+        this.contestAttribute = new ContestAttributeEndpoint(this);
         this.dppContestMoveType = new DppContestMoveTypeEndpoint(this);
         this.item = new ItemEndpoint(this);
+        this.nature = new NatureEndpoint(this);
         this.orasContestMoveType = new OrasContestMoveTypeEndpoint(this);
         this.parkLocation = new ParkLocationEndpoint(this);
         this.parkRank = new ParkRankEndpoint(this);
@@ -69,6 +78,3 @@ export class Client {
 }
 
 module.exports.Client = Client;
-
-export * from "../models";
-

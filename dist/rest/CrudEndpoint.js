@@ -20,15 +20,15 @@ class CrudEndpoint extends BaseEndpoint_1.BaseEndpoint {
     fetch(name) {
         return __awaiter(this, void 0, void 0, function* () {
             const value = yield RequestHandler_1.RequestHandler.handle(`${this.url}/${name}`);
-            return this.client.nullHandling ? Util_1.castNulls(value) : value;
+            return Util_1.flattenObjects(this.client.nullHandling ? Util_1.castNulls(value) : value);
         });
     }
     fetchClosest(name) {
         return __awaiter(this, void 0, void 0, function* () {
             const list = yield this.list();
-            const { bestMatch: { rating }, bestMatchIndex } = string_similarity_1.findBestMatch(name, list.map(x => x.toLowerCase()));
+            const { bestMatch: { rating }, bestMatchIndex } = string_similarity_1.findBestMatch(name.toLowerCase(), list.map(x => x.toLowerCase()));
             const value = yield this.fetch(list[bestMatchIndex]);
-            return { rating, value: this.client.nullHandling ? Util_1.castNulls(value) : value };
+            return { rating, value: Util_1.flattenObjects(this.client.nullHandling ? Util_1.castNulls(value) : value) };
         });
     }
 }
