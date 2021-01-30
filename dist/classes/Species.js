@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SpeciesEndpoint = void 0;
 const CrudEndpoint_1 = require("../rest/CrudEndpoint");
 const RequestHandler_1 = require("../rest/RequestHandler");
 class SpeciesEndpoint extends CrudEndpoint_1.CrudEndpoint {

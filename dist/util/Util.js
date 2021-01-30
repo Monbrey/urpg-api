@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.flattenObjects = exports.castNulls = void 0;
 function castNulls(data) {
     const NULL_VALUES = ["NONE", "-1", -1, "-", "Not Found", "Unavailable"];
     for (const key of Object.keys(data)) {

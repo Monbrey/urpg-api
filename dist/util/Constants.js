@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DefaultOptions = exports.Environments = void 0;
 const EnvironmentNames = ['production', 'staging'];
 exports.Environments = {
     production: "https://pokemonurpg.com:8443",

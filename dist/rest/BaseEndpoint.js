@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.BaseEndpoint = void 0;
 const RequestHandler_1 = require("./RequestHandler");
 class BaseEndpoint {
     /**

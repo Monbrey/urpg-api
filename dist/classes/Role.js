@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.RoleEndpoint = void 0;
 const CrudEndpoint_1 = require("../rest/CrudEndpoint");
 class RoleEndpoint extends CrudEndpoint_1.CrudEndpoint {
     constructor(client) {

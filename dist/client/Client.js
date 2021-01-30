@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Client = void 0;
 const Ability_1 = require("../classes/Ability");
 const AdvancedContestMoveType_1 = require("../classes/AdvancedContestMoveType");
 const ArtRank_1 = require("../classes/ArtRank");

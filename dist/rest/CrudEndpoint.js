@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CrudEndpoint = void 0;
 const string_similarity_1 = require("string-similarity");
 const BaseEndpoint_1 = require("./BaseEndpoint");
 const RequestHandler_1 = require("./RequestHandler");
