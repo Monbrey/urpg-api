@@ -22,17 +22,17 @@ const client = new Client_1.Client();
 const list = ["Blaze", "Overgrow", "Torrent"];
 const ability = {
     dbid: 1542,
-    name: 'Blaze',
-    description: 'Powers up Fire-type moves when the Pokemon has low HP.'
+    name: "Blaze",
+    description: "Powers up Fire-type moves when the Pokemon has low HP.",
 };
 const responseMock = { status: 200, data: undefined };
-test('should fetch list of abilities', () => __awaiter(void 0, void 0, void 0, function* () {
+test("should fetch list of abilities", () => __awaiter(void 0, void 0, void 0, function* () {
     responseMock.data = list;
     fetchMock.mockReturnValue(Promise.resolve(new Response(JSON.stringify(responseMock))));
     const response = yield client.ability.list();
     expect(response).toEqual(list);
 }));
-test('should fetch single ability', () => __awaiter(void 0, void 0, void 0, function* () {
+test("should fetch single ability", () => __awaiter(void 0, void 0, void 0, function* () {
     responseMock.data = ability;
     fetchMock.mockReturnValue(Promise.resolve(new Response(JSON.stringify(responseMock))));
     const response = yield client.ability.fetch("Blaze");

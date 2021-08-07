@@ -23,7 +23,8 @@ class BaseEndpoint {
     }
     list() {
         return __awaiter(this, void 0, void 0, function* () {
-            return RequestHandler_1.RequestHandler.handle(this.url, "GET");
+            const list = yield RequestHandler_1.RequestHandler.handle(this.url, "GET");
+            return list;
         });
     }
 }

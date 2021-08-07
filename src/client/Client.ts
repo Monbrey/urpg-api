@@ -21,60 +21,60 @@ import { UserEndpoint } from "../classes/User";
 import { EnvironmentName, Environments } from "../util/Constants";
 
 export interface ClientOptions {
-    environment?: EnvironmentName;
-    nullHandling?: boolean;
+	environment?: EnvironmentName;
+	nullHandling?: boolean;
 }
 
 export class Client {
-    public readonly baseUrl: string;
-    public readonly nullHandling: boolean;
+	public readonly baseUrl: string;
+	public readonly nullHandling: boolean;
 
-    public readonly ability: AbilityEndpoint;
-    public readonly advContestMoveType: AdvancedContestMoveType;
-    public readonly artRank: ArtRankEndpoint;
-    public readonly attack: AttackEndpoint;
-    public readonly attackCategory: AttackCategoryEndpoint;
-    public readonly attackTargetType: AttackTargetTypeEndpoint;
-    public readonly contestAttribute: ContestAttributeEndpoint;
-    public readonly dppContestMoveType: DppContestMoveTypeEndpoint;
-    public readonly item: ItemEndpoint;
-    public readonly nature: NatureEndpoint;
-    public readonly orasContestMoveType: OrasContestMoveTypeEndpoint;
-    public readonly parkLocation: ParkLocationEndpoint;
-    public readonly parkRank: ParkRankEndpoint;
-    public readonly permission: PermissionEndpoint;
-    public readonly role: RoleEndpoint;
-    public readonly rseContestMoveType: RseContestMoveTypeEndpoint;
-    public readonly species: SpeciesEndpoint;
-    public readonly storyRank: StoryRankEndpoint;
-    public readonly type: TypeEndpoint;
-    public readonly user: UserEndpoint;
+	public readonly ability: AbilityEndpoint;
+	public readonly advContestMoveType: AdvancedContestMoveType;
+	public readonly artRank: ArtRankEndpoint;
+	public readonly attack: AttackEndpoint;
+	public readonly attackCategory: AttackCategoryEndpoint;
+	public readonly attackTargetType: AttackTargetTypeEndpoint;
+	public readonly contestAttribute: ContestAttributeEndpoint;
+	public readonly dppContestMoveType: DppContestMoveTypeEndpoint;
+	public readonly item: ItemEndpoint;
+	public readonly nature: NatureEndpoint;
+	public readonly orasContestMoveType: OrasContestMoveTypeEndpoint;
+	public readonly parkLocation: ParkLocationEndpoint;
+	public readonly parkRank: ParkRankEndpoint;
+	public readonly permission: PermissionEndpoint;
+	public readonly role: RoleEndpoint;
+	public readonly rseContestMoveType: RseContestMoveTypeEndpoint;
+	public readonly species: SpeciesEndpoint;
+	public readonly storyRank: StoryRankEndpoint;
+	public readonly type: TypeEndpoint;
+	public readonly user: UserEndpoint;
 
-    public constructor(options: ClientOptions = {}) {
-        this.baseUrl = Environments[options.environment || "production"];
-        this.nullHandling = options.nullHandling;
+	public constructor(options: ClientOptions = {}) {
+		this.baseUrl = Environments[options.environment || "production"];
+		this.nullHandling = options.nullHandling;
 
-        this.ability = new AbilityEndpoint(this);
-        this.advContestMoveType = new AdvancedContestMoveType(this);
-        this.artRank = new ArtRankEndpoint(this);
-        this.attack = new AttackEndpoint(this);
-        this.attackCategory = new AttackCategoryEndpoint(this);
-        this.attackTargetType = new AttackTargetTypeEndpoint(this);
-        this.contestAttribute = new ContestAttributeEndpoint(this);
-        this.dppContestMoveType = new DppContestMoveTypeEndpoint(this);
-        this.item = new ItemEndpoint(this);
-        this.nature = new NatureEndpoint(this);
-        this.orasContestMoveType = new OrasContestMoveTypeEndpoint(this);
-        this.parkLocation = new ParkLocationEndpoint(this);
-        this.parkRank = new ParkRankEndpoint(this);
-        this.permission = new PermissionEndpoint(this);
-        this.role = new RoleEndpoint(this);
-        this.rseContestMoveType = new RseContestMoveTypeEndpoint(this);
-        this.species = new SpeciesEndpoint(this);
-        this.storyRank = new StoryRankEndpoint(this);
-        this.type = new TypeEndpoint(this);
-        this.user = new UserEndpoint(this);
-    }
+		this.ability = new AbilityEndpoint(this);
+		this.advContestMoveType = new AdvancedContestMoveType(this);
+		this.artRank = new ArtRankEndpoint(this);
+		this.attack = new AttackEndpoint(this);
+		this.attackCategory = new AttackCategoryEndpoint(this);
+		this.attackTargetType = new AttackTargetTypeEndpoint(this);
+		this.contestAttribute = new ContestAttributeEndpoint(this);
+		this.dppContestMoveType = new DppContestMoveTypeEndpoint(this);
+		this.item = new ItemEndpoint(this);
+		this.nature = new NatureEndpoint(this);
+		this.orasContestMoveType = new OrasContestMoveTypeEndpoint(this);
+		this.parkLocation = new ParkLocationEndpoint(this);
+		this.parkRank = new ParkRankEndpoint(this);
+		this.permission = new PermissionEndpoint(this);
+		this.role = new RoleEndpoint(this);
+		this.rseContestMoveType = new RseContestMoveTypeEndpoint(this);
+		this.species = new SpeciesEndpoint(this);
+		this.storyRank = new StoryRankEndpoint(this);
+		this.type = new TypeEndpoint(this);
+		this.user = new UserEndpoint(this);
+	}
 }
 
 module.exports.Client = Client;

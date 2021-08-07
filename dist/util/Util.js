@@ -21,7 +21,7 @@ function castNulls(data) {
 exports.castNulls = castNulls;
 function flattenObjects(data) {
     if (typeof data !== "object")
-        return;
+        return null;
     for (const key in data) {
         if (typeof data[key] === "object" && Object.keys(data[key]).every(k => ["dbid", "name"].includes(k))) {
             data[key] = data[key].name;

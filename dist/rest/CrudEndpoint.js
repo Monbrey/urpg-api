@@ -15,9 +15,6 @@ const BaseEndpoint_1 = require("./BaseEndpoint");
 const RequestHandler_1 = require("./RequestHandler");
 const Util_1 = require("../util/Util");
 class CrudEndpoint extends BaseEndpoint_1.BaseEndpoint {
-    constructor(client, resource) {
-        super(client, resource);
-    }
     fetch(name) {
         return __awaiter(this, void 0, void 0, function* () {
             const value = yield RequestHandler_1.RequestHandler.handle(`${this.url}/${name}`);

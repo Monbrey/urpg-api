@@ -125,7 +125,7 @@ export interface MegaEvolvesFrom {
 export interface Role {
     dbid: number;
     name: string;
-    permissions: Array<string>;
+    permissions: string[];
 }
 export interface SpeciesAbility extends Ability {
     hidden: boolean;
