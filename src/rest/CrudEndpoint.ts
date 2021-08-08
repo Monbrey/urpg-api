@@ -23,7 +23,7 @@ export abstract class CrudEndpoint<T = unknown> extends BaseEndpoint {
         return { rating, value: this.client.nullHandling ? castNulls<T>(value) : value }
     }
 
-    public abstract async create(): Promise<T>;
-    public abstract async update(): Promise<T>;
-    public abstract async delete(): Promise<T>;
+    public abstract create(): Promise<T>;
+    public abstract update(): Promise<T>;
+    public abstract delete(): Promise<T>;
 }
