@@ -1,6 +1,6 @@
+import { BestMatch, findBestMatch } from "string-similarity";
 import { RequestHandler } from "./RequestHandler";
 import type { Client } from "../client/Client";
-
 
 export abstract class BaseEndpoint {
 	/**
@@ -32,5 +32,11 @@ export abstract class BaseEndpoint {
 	public async list(): Promise<string[]> {
 		const list = await RequestHandler.handle(this.url, "GET");
 		return list;
+	}
+
+	public async listClosest(query: string): Promise<BestMatch> {
+		const list = await this.list();
+
+		return findBestMatch(query, list);
 	}
 }
