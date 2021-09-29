@@ -1,4 +1,4 @@
-import { BestMatch, findBestMatch } from "string-similarity";
+import { findBestMatch, Rating } from "string-similarity";
 import { RequestHandler } from "./RequestHandler";
 import type { Client } from "../client/Client";
 
@@ -34,9 +34,10 @@ export abstract class BaseEndpoint {
 		return list;
 	}
 
-	public async listClosest(query: string): Promise<BestMatch> {
+	public async listClosest(query: string, limit = 10): Promise<Rating[]> {
 		const list = await this.list();
 
-		return findBestMatch(query, list);
+		const { ratings } = findBestMatch(query, list);
+		return ratings.sort((a, b) => b.rating - a.rating).slice(0, limit);
 	}
 }
